@@ -17,24 +17,28 @@ const reformat = string => {
   return result.join();
 };
 
-const next_binary_number = (num = [1, 0]) => {
-    const binaryNum = [];
-    let dec = 1;
-
-  //convert binary to decimal 
-  for (let i = 0; i <= num.length; i++) {
-    if (num[num.length - (i + 1)] === 1) {
-      dec += 2 ** i;
+const next_binary_number = (array = [1, 0]) => {
+  let valToAdd = 1;
+  let result = [];
+  
+  for (let i = array.length-1; i >= 0; i--){
+  
+    let tempRes = array[i] + valToAdd
+    if (tempRes <= 1) {
+         result.push(tempRes) 
+        valToAdd = 0
+    } else {
+         result.push(0)
+      // valToAdd ramane 1 pentru că a rămas în minte la adunare
     }
+  
   }
 
-  //converting from decimal to binary
-  while (dec > 0) {
-    binaryNum.push(dec % 2);
-    dec = Math.floor(dec / 2);
-  }
-
-  return reverseArray(binaryNum);
+    if (valToAdd > 0) {
+        result.push(1);
+    }
+  
+  return reverseArray(result)
 };
 
 const reverseArray = array => {
