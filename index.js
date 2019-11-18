@@ -29,7 +29,6 @@ const next_binary_number = (array = [1, 0]) => {
         valToAdd = 0
     } else {
          result.push(0)
-      // valToAdd ramane 1 pentru că a rămas în minte la adunare
     }
   
   }
